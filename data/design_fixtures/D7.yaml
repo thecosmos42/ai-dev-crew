@@ -1,0 +1,14 @@
+summary: Replace calculate_dti with a front-end DTI calculation accepting Applicant.
+affected_modules:
+  - loan_calc/dti.py
+new_files: []
+approach: Change calculate_dti to use monthly_housing_payment and return a percentage, removing the old implementation.
+edge_cases:
+  - Missing housing payment defaults to zero.
+  - Zero income returns a defined safe result.
+test_scenarios:
+  - Test front-end DTI for an Applicant.
+assumptions: []
+open_questions: []
+ambiguity_flags: []
+confidence: 0.80

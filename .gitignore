@@ -1,0 +1,18 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Coverage output
+.coverage
+coverage.json
+report.xml
+
+# Project runtime artifacts
+runs/
+*.db

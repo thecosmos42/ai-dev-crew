@@ -1,0 +1,20 @@
+naming:
+  functions: {rule: snake_case, severity: error}
+  classes: {rule: PascalCase, severity: error}
+  constants: {rule: UPPER_SNAKE_CASE, severity: error}
+  test_functions: {prefix: "test_", severity: error}
+coverage:
+  default_min: 75
+  modules:
+    loan_calc/risk_scoring.py: {min: 90, sensitive: true}
+    loan_calc/eligibility.py: {min: 85, sensitive: true}
+    loan_calc/rates.py: {min: 85, sensitive: false}
+tests:
+  forbid_deleting_existing_tests: true
+  forbid_reducing_assertions: true
+  require_test_for_new_public_functions: true
+risk:
+  sensitive_below_threshold: high
+  non_sensitive_below_threshold: medium
+  failing_tests: high
+  naming_violation: medium

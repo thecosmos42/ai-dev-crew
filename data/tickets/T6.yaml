@@ -1,0 +1,6 @@
+id: T6
+title: Update maximum DTI policy
+description: Update the maximum debt-to-income policy.
+acceptance_criteria:
+  - Reject any applicant whose DTI exceeds 40%
+  - Applicants with DTI up to 45% must continue to be approved when income is verified and credit score is at least 620

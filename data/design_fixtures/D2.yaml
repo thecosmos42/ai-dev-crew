@@ -1,0 +1,15 @@
+summary: Require 24 months of history for self-employed applicants.
+affected_modules:
+  - loan_calc/income_verification.py
+  - loan_calc/eligibility.py
+new_files: []
+approach: Make employment history validation depend on employment_type while retaining six months for other applicants.
+edge_cases:
+  - A self-employed applicant with 23 months is declined.
+  - An employee with six months remains eligible for history.
+test_scenarios:
+  - Test both employment types at their boundaries.
+assumptions: []
+open_questions: []
+ambiguity_flags: []
+confidence: 0.95

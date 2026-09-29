@@ -1,0 +1,7 @@
+id: T7
+title: Front-end DTI definition
+description: Replace the DTI definition with a front-end housing-payment calculation.
+acceptance_criteria:
+  - calculate_dti keeps its exact name and accepts an Applicant
+  - Return front-end DTI as a percentage using monthly_housing_payment, defaulting to 0.0
+  - Replace the existing implementation with no old function or alias

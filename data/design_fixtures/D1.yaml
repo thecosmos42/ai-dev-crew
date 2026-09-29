@@ -1,0 +1,14 @@
+summary: Add an excellent-credit rate tier.
+affected_modules:
+  - loan_calc/rates.py
+new_files: []
+approach: Add a 780 credit-score tier before the existing 740 tier and preserve the DTI surcharge.
+edge_cases:
+  - Score 779 keeps the existing 740 tier.
+  - Score 780 receives 0.0525 when DTI is below 0.36.
+test_scenarios:
+  - Verify scores 779 and 780 at low DTI.
+assumptions: []
+open_questions: []
+ambiguity_flags: []
+confidence: 0.95

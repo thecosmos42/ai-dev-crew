@@ -1,0 +1,70 @@
+T1:
+  design: clean
+  dev: success
+  review: approve
+  pipeline: [approved]
+  expected_modules: [loan_calc/rates.py]
+  uncertainty_planted: null
+  max_dev_retries: 1
+  hitl_script: {}
+T2:
+  design: clean
+  dev: success
+  review: approve
+  pipeline: [approved]
+  expected_modules: [loan_calc/income_verification.py, loan_calc/eligibility.py]
+  uncertainty_planted: null
+  max_dev_retries: 1
+  hitl_script: {}
+T3:
+  design: clean
+  dev: success
+  review: reject
+  review_rules: [coverage.below_threshold]
+  pipeline: [rejected]
+  uncertainty_planted: null
+  max_dev_retries: 0
+  hitl_script: {}
+T4:
+  design: clean
+  dev: success
+  review: reject
+  review_rules: [coverage.below_threshold]
+  pipeline: [rejected]
+  uncertainty_planted: null
+  max_dev_retries: 0
+  hitl_script: {}
+T5:
+  design: flag_vague
+  dev: success
+  review: approve
+  pipeline: [approved]
+  uncertainty_planted: design
+  max_dev_retries: 1
+  hitl_script:
+    design: ["Raise the minimum credit score from 580 to 620 and lower the maximum DTI from 0.43 to 0.40. No other rule changes."]
+T6:
+  design: flag_contradictory
+  dev: success
+  review: approve
+  pipeline: [approved]
+  uncertainty_planted: design
+  max_dev_retries: 1
+  hitl_script:
+    design: ["The 40% hard limit applies to everyone. Ignore the 45% criterion."]
+T7:
+  design: any
+  dev: blocked
+  pipeline: [blocked, needs_human_unresolved]
+  uncertainty_planted: dev
+  max_dev_retries: 1
+  hitl_script: {}
+T8:
+  design: clean
+  dev: success
+  review: reject
+  review_rules: [naming.function_snake_case]
+  pipeline: [rejected, approved]
+  uncertainty_planted: null
+  max_dev_retries: 1
+  hitl_script: {}

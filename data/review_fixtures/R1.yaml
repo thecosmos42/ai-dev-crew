@@ -1,0 +1,18 @@
+id: R1
+design_ref: D1
+files:
+  loan_calc/rates.py: |
+    from .dti import calculate_dti
+    from .models import Applicant
+
+    RATE_TIERS = {780: 0.0525, 740: 0.060, 680: 0.070, 620: 0.085, 580: 0.105}
+
+    def pick_rate(applicant: Applicant) -> float:
+        dti = calculate_dti(applicant.monthly_debt_payments, applicant.monthly_income)
+        threshold = max((value for value in RATE_TIERS if applicant.credit_score >= value), default=580)
+        rate = RATE_TIERS[threshold]
+        return rate + 0.005 if dti >= 0.36 else rate
+expected:
+  decision: approve
+  rules: []
+  min_risk: low

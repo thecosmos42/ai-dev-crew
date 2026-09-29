@@ -1,0 +1,6 @@
+id: T5
+title: Make eligibility stricter
+description: Tighten eligibility so fewer risky applicants are approved.
+acceptance_criteria:
+  - Eligibility should be stricter than today
+  - Fewer risky applicants are approved

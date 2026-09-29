@@ -1,0 +1,7 @@
+id: T1
+title: Add excellent-credit rate tier
+description: Add a preferred rate tier for applicants with excellent credit.
+acceptance_criteria:
+  - pick_rate returns 0.0525 for score >= 780 when DTI < 0.36
+  - Existing rate tiers remain unchanged
+  - Add boundary tests at credit scores 779 and 780

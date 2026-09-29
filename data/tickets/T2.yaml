@@ -1,0 +1,8 @@
+id: T2
+title: Longer history for self-employed
+description: Require a longer employment history for self-employed applicants.
+acceptance_criteria:
+  - self_employed applicants need at least 24 months of employment history
+  - Other applicants keep the existing six-month requirement
+  - Failing applicants are declined with reason insufficient_employment_history
+  - Add unit tests for both employment types

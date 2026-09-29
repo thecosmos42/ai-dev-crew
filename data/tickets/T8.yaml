@@ -1,0 +1,7 @@
+id: T8
+title: Add debt burden helper
+description: Add a public API-parity helper for calculating debt burden.
+acceptance_criteria:
+  - Add a public helper named exactly computeDebtBurden(applicant) in dti.py
+  - Return debt divided by income, or 0.0 when income is 0
+  - Add tests in tests/test_dti.py

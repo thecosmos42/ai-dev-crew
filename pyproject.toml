@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sdlc-agents"
+version = "0.1.0"
+description = "Prototype multi-agent SDLC automation suite"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=0.3",
+    "langchain-anthropic>=0.3",
+    "langchain-openai>=0.3",
+    "langgraph>=0.2",
+    "pydantic>=2",
+    "pydantic-settings>=2",
+    "python-dotenv>=1",
+    "pyyaml>=6",
+    "pytest>=8",
+    "pytest-cov>=5",
+    "streamlit>=1.40",
+    "pandas>=2",
+    "plotly>=5",
+    "typer>=0.12",
+    "rich>=13",
+    "tenacity>=9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

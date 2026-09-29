@@ -1,0 +1,8 @@
+id: T4
+title: Monthly payment estimator
+description: Add an amortizing monthly payment calculation to the rates module.
+acceptance_criteria:
+  - Add estimate_monthly_payment(principal, annual_rate, term_months) to rates.py
+  - Use amortization for nonzero annual rates
+  - annual_rate == 0 returns principal divided by term_months
+  - Do not add or modify files under tests/

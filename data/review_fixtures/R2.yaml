@@ -1,0 +1,29 @@
+id: R2
+design_ref: T3
+files:
+  loan_calc/risk_scoring.py: |
+    from .dti import calculate_dti
+    from .models import Applicant
+
+    def score_applicant(applicant: Applicant) -> int:
+        try:
+            dti = calculate_dti(applicant.monthly_debt_payments, applicant.monthly_income)
+        except ValueError:
+            dti = 1.0
+        score = round(max(0, min(100, (applicant.credit_score - 300) / 7.33 + 25 - dti * 25 + applicant.employment_months / 24 * 15)))
+        if applicant.recent_delinquencies >= 2:
+            score -= 15
+        elif applicant.recent_delinquencies == 1:
+            score -= 8
+        return max(0, min(100, score))
+
+    def risk_bucket(score: int) -> str:
+        if score >= 75:
+            return "low"
+        if score >= 50:
+            return "medium"
+        return "high"
+expected:
+  decision: reject
+  rules: [coverage.below_threshold]
+  min_risk: high

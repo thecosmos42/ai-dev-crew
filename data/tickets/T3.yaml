@@ -1,0 +1,8 @@
+id: T3
+title: Recent delinquency penalty
+description: Lower risk scores for applicants with recent delinquencies.
+acceptance_criteria:
+  - Subtract 15 points when recent_delinquencies is at least 2
+  - Subtract 8 points when recent_delinquencies is 1
+  - Keep the score clamp between 0 and 100
+  - Tests will be added in a follow-up ticket; do not add or modify files under tests/

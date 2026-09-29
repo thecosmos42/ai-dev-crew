@@ -1,0 +1,6 @@
+models:
+  claude-haiku-4-5-20251001:
+    input_per_1k: 0.001
+    output_per_1k: 0.005
+    cache_write_per_1k: 0.00125
+    cache_read_per_1k: 0.0001

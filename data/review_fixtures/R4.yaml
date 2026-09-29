@@ -1,0 +1,24 @@
+id: R4
+design_ref: T8
+files:
+  loan_calc/dti.py: |
+    def calculate_dti(monthly_debt: float, monthly_income: float) -> float:
+        if monthly_income <= 0:
+            raise ValueError("monthly income must be greater than zero")
+        return monthly_debt / monthly_income
+
+    def dti_band(dti: float) -> str:
+        if dti < 0.36:
+            return "low"
+        if dti <= 0.43:
+            return "moderate"
+        return "high"
+
+    def computeDebtBurden(applicant) -> float:
+        if applicant.monthly_income == 0:
+            return 0.0
+        return applicant.monthly_debt_payments / applicant.monthly_income
+expected:
+  decision: reject
+  rules: [naming.function_snake_case]
+  min_risk: medium
