@@ -1,4 +1,5 @@
 # SDLC Multi-Agent Automation Suite
+![ai-dev-crew](ai-dev-crew.png)
 
 Prototype automation for a credit-risk engineering workflow: ticket, design, development, review, and evaluation. The system uses structured Pydantic handoffs, deterministic repository checks, LangGraph orchestration, SQLite metrics, and a Streamlit dashboard.
 
